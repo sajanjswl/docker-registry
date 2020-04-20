@@ -1,0 +1,21 @@
+version: '3.1'
+
+
+volumes:
+  mongoData:
+
+networks:
+  mongo_net:
+    
+
+services:
+  greet:
+    build: .
+    image: idiota/greet:v2
+    container_name: greet
+    restart: always
+    networks:
+      - mongo_net
+    ports:
+      - 50051:50051
+
